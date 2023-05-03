@@ -10,7 +10,7 @@ const store = new Vuex.Store({
 		searchParams: {},
 		loading: false,
 		events: [],
-		isEventsNull: true,
+		isEventsNull: null,
 		maxPage: null,
 		activeItem: null,
 		markerIndex: null,
@@ -86,7 +86,7 @@ const store = new Vuex.Store({
 
 						commit("setMaxPage", res.data.page.totalPages);
 
-						commit("setEvents", res.data._embedded.events);
+                        res.data._embedded ? commit("setEvents", res.data._embedded.events) : commit("setEvents", []);
 
 						state.events.length
 							? commit("setIsEventsNull", false)

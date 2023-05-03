@@ -2,13 +2,13 @@
 	<div id="event-list" :class="{ 'no-scroll': loadingMore }">
 		<h3
 			class="no-results"
-			v-if="!loading && !events.length && isEventsNull"
+			v-if="!loading && !events.length && isEventsNull == null"
 		>
 			Search for a location or postal code to obtain results.
 		</h3>
 		<CircleLoader v-else-if="loading" :width="100" />
 		<h3 class="no-results" v-else-if="!loading && isEventsNull">
-			Could not find events based on the search criteria(s).
+			Could not find events based on the search criteria.
 		</h3>
 		<ul v-else>
 			<li
