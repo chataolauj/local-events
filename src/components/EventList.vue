@@ -18,7 +18,7 @@
 				:item="event"
 				:key="index"
 			>
-				<h4>{{ event.name }}</h4>
+				<h4><a :href="event.url" target="_blank">{{ event.name }}</a></h4>
 				<p>
 					<i class="fas fa-map-marker-alt"></i>
 					{{ event._embedded.venues[0].address.line1 }},
